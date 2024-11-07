@@ -15,8 +15,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "4.0"     # Limit CPU to 1 core
-          memory: 8G      # Limit memory to 4 GB
-          reservations:
-            generic_resources:
-              - discrete_resource_spec: "gpu=0"  # Reserve 1 GPU
+          cpus: "1.0"     # Limit CPU to 1 core
+          memory: 4G      # Limit memory to 4 GB
+        reservations:
+          generic_resources:
+            - discrete_resource_spec: "gpu=0"  # Reserve 1 GPU
