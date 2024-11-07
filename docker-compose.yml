@@ -2,9 +2,10 @@ version: '3.8'
 
 services:
   talk3d:
+    image: nvidia/cuda:11.6-cudnn8-runtime-ubuntu20.04  # Base image
     build:
       context: .
-      dockerfile: Docker.cuda.yml
+      dockerfile: Dockerfile
     container_name: talk3d
     runtime: nvidia  # Use NVIDIA runtime to enable GPU access
     environment:
