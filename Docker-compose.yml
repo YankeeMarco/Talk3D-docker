@@ -19,4 +19,8 @@ services:
           memory: 4G      # Limit memory to 4 GB
         reservations:
           generic_resources:
-            - discrete_resource_spec: "gpu=0"  # Reserve 1 GPU
+            - discrete_resource_spec:
+                name: "gpu"       # Properly specify the resource
+                parameters:
+                  - key: "count"
+                    value: "1"      # Reservations for 1 GPU
