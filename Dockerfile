@@ -1,5 +1,5 @@
 # Use a CUDA base image
-FROM nvidia/cuda:11.6-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
 
 # Set working directory
 WORKDIR /app
