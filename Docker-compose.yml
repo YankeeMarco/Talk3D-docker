@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  talk3d:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: talk3d
+    runtime: nvidia  # Use NVIDIA runtime to enable GPU access
+    environment:
+      - PATH=/opt/conda/bin:$PATH
+    volumes:
+      - .:/app  # Mount current directory to /app in the container
+    command: ["/bin/bash"]  # Start with bash
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"     # Limit CPU to 1 core
+          memory: 8G      # Limit memory to 4 GB
+          reservations:
+            generic_resources:
+              - discrete_resource_spec: "gpu=0"  # Reserve 1 GPU
